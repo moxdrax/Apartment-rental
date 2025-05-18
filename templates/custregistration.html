@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+  <link href="../static/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/assets/css/style.css" rel="stylesheet">
+
+  <title>Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url(./static/login.jpeg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+    }
+
+    .header {
+      width: 95%;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      margin-left: 30px;
+      color: white;
+      font-family: 'Carter One', cursive;
+      font-size: 40px;
+    }
+
+    .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin-right: 50px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #30d01b;
+    }
+
+    .containerr {
+      height: 590px;
+      padding: 25px 30px;
+      border-radius: 25px;
+      margin-top: 55px;
+      margin-left: 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      color: #333333;
+      margin-top: 0;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .details {
+      margin-top: 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .row {
+      display: flex;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+
+    .box {
+      text-align: cnter;
+      flex: 1;
+      margin-right: 10px;
+      margin-top: 3px;
+    }
+
+    .box:last-child {
+      margin-right: 0;
+    }
+
+    .box label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .box input[type="text"],
+    .box input[type="password"],
+    .box input[type="date"],
+    .box select {
+      outline: none;
+      height: auto;
+      width: 250px;
+      padding: 10px;
+      border: 1px solid #cccccc;
+      border-radius: 4px ;
+      box-sizing: border-box;
+      background: transparent;
+    }
+
+    .submit {
+      text-align: center;
+    }
+
+    .submit button {
+      background-color: #00B98E;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .submit button:hover {
+      background-color: #08cb9e;
+    }
+
+    .create-account {
+      font-size: 16px;
+      color: #666666;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .create-account a {
+      color: #00B98E;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .create-account a:hover {
+      color: #08cb9e;
+    }
+
+    .heading {
+      text-align: center;
+      font-family: "Arial Black", sans-serif;
+      font-size: 36px;
+      color: #00B98E;
+      margin-bottom: 10px;
+    }
+
+    .message {
+            top: 203px;
+            left: 480px;
+            position: absolute;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
+            color: #00B98E;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border: none;
+            animation: fadeOut 4s ease-in-out forwards;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                display: none;
+            }
+        }
+
+    .error-message {
+      left: 796px;
+      position: absolute;
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .error-message1 {
+      left: 641px;
+      position: absolute;
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .error-message2 {
+      left: 486px;
+      position: absolute;
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .navbar {
+      background-color: white;
+      margin-top: -46px;
+      width: auto;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid nav-bar bg-transparent">
+    <nav class="navbar navbar-expand-lg  navbar-light py-0 px-4">
+      <a href="homepg" class="navbar-brand d-flex align-items-center text-center">
+        <h1 class="m-0 text-primary">Cappacale Dale</h1>
+      </a>
+      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto">
+          <a href="homepg" class="nav-item nav-link active">Home</a>
+          <a href="about.html" class="nav-item nav-link">About</a>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="property-list.html" class="dropdown-item">Property List</a>
+              <a href="property-type.html" class="dropdown-item">Property Type</a>
+              <a href="property-agent.html" class="dropdown-item">Property Agent</a>
+            </div>
+          </div>
+          <a href="contact.html" class="nav-item nav-link">Contact</a>
+        </div>
+        <a href="" class="btn btn-primary d-none d-lg-flex">Add Property</a>
+      </div>
+    </nav>
+  </div>
+  <div class="containerr">
+    <div class="heading"><b>Create Account</b></div>
+    {% if error_message %}
+    <div class="message">{{ error_message }}</div>
+    {% endif %}
+    <form action="registcust" method="POST">
+      {%csrf_token%}
+      <div class="details">
+        <div class="row">
+          <div class="box">
+            <label>First Name</label>
+            <input type="text" placeholder="Enter your First Name" name="cust_fname" required>
+          </div>
+          <div class="box">
+            <label>Middle Name</label>
+            <input type="text" placeholder="Enter your Middle Name" name="cust_mname" required>
+          </div>
+          <div class="box">
+            <label>Last Name</label>
+            <input type="text" placeholder="Enter your Last Name" name="cust_lname" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="box">
+            <label>Email</label>
+            <input type="text" placeholder="Enter your Email" name="username" required>
+            <div class="error-message"></div>
+          </div>
+          <div class="box">
+            <label>District</label>
+            <input type="text" placeholder="Enter your District" name="cust_district" required>
+          </div>
+          <div class="box">
+            <label>City</label>
+            <input type="text" placeholder="Enter your City" name="cust_city" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="box">
+            <label>Pincode</label>
+            <input type="text" maxlength="6" placeholder="Enter your Pincode" name="cust_pin" required>
+          </div>
+          <div class="box">
+            <label>Phone Number</label>
+            <input type="text" maxlength="10" placeholder="Enter your Phone Number" name="cust_phno" required>
+          </div>
+          <div class="box">
+            <label>Gender</label>
+            <select name="cust_gender" required>
+              <option>Select your Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="box">
+            <label>Date of Birth</label>
+            <input type="date" placeholder="Date of Birth" name="cust_dob" required>
+          </div>
+          <div class="box">
+            <label>Password</label>
+            <input type="password" maxlength="8" placeholder="Enter Password" name="password_" required>
+          </div>
+          <div class="box">
+          
+          </div>
+        </div>
+        <div class="submit">
+          <button type="submit" name="save">Register</button>
+        </div>
+        <div class="create-account">
+          <p>Already have an account? <a href="login">Login</a></p>
+        </div>
+    </form>
+  </div>
+</body>
+
+</html>

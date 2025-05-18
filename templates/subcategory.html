@@ -1,0 +1,177 @@
+<html>
+    <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+        <title>Add Subcategory</title>
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            background-image: url(./static/apartment.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+  }  
+  .container {
+    height: 400px;
+    max-width: 700px;
+    width: 40%;
+    padding: 25px 30px;
+    border-radius: 25px;
+    margin-top: 50px;
+    margin-left: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  }
+  .header {
+    width: 95%;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        .nav-links li {
+          margin-right: 50px;
+        }
+        
+        .nav-links li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-links li a:hover {
+        color: #ff8630;
+        }
+        
+        .admin-title {
+      color:white;
+      font-family: 'Carter One', cursive;
+        font-size: 40px;
+      }
+  h2 {
+    color: #333333;
+    margin-top: 0;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom:10px;
+  }
+  
+  .box {
+    text-align: left;
+    flex-basis: 45%;
+    margin-bottom: 20px;
+    margin-top: 1%; 
+  }
+  
+  .box label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .box input[type="text"],
+  .box input[type="message"],
+  .box input[type="file"],
+  .box select,
+  .box textarea {
+    font-family: sans-serif;
+    outline: none;
+    height: auto;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: transparent;
+  }
+  .submit {
+    text-align: center;
+    margin-top: 45px;
+  }
+  
+  .submit button {
+    background-color: #30d01b;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: block; 
+    margin: 0 auto;
+  }
+  
+  .submit button:hover {
+    background-color: #2bb918;
+  }   
+  .heading {
+    text-align: center;
+    font-family: "Arial Black", sans-serif;
+    font-size: 36px;
+    color: #333333;
+    margin-bottom: 20px;
+  }
+        </style>
+    </head>
+    <body>
+    <div class="header">
+        <div class="admin-title">Cappacale Dale</div>
+        <ul class="nav-links">
+            <li><a href="managesubcat">Home</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="heading"><b>Add Subcategory</b></div>
+        <form action="registsubcat" method="post" enctype="multipart/form-data">
+          {%csrf_token%}
+            <div class="details">
+                <div class="box">
+                    <label>Subcategory Name</label>
+                    <input type="text" name="subcategory_name" placeholder="Enter Subcategory Name">
+                </div>
+                <div class="box">
+                  <label>Select Category</label>
+                  <select name="category_id" required>
+                      <option value="" disabled selected>Select a Category</option>
+                      {% for cat in categories %}
+                          <option value="{{ cat.id }}">{{ cat.Cat_Name }}</option>
+                      {% endfor %}
+                  </select>
+              </div>              
+                <div class="box">
+                    <label>Subcategory Image</label>
+                    <input type="file" name="subcategory_image">
+            </div>
+            <div class="box">
+                <label>Subcategory Description</label>
+                <textarea rows="5" name="subcategory_desc" placeholder="Enter Subcategory Description"></textarea>
+            </div>
+            </div>
+            <div class="submit">
+                <button name="save" type="submit">Add</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

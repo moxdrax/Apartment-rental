@@ -1,0 +1,234 @@
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+  <title>Owner Registration</title>
+  <style>
+     body {
+            font-family: Arial, sans-serif;
+            background-image: url(/static/apartment.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            margin: 0;
+    }  
+   .header {
+            width: 95%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+    }
+    .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        .nav-links li {
+            
+            margin-right: 50px;
+        }
+        
+        .nav-links li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-links li a:hover {
+        color: grey;
+        }
+        
+        .admin-title {
+        margin-left:30px;
+        color:white;
+        font-family: 'Carter One', cursive;
+        font-size: 40px;
+      }
+    .container {
+      height: 640px;
+      max-width: 700px;
+      width: 47%;
+      padding: 25px 30px;
+      border-radius: 25px;
+      margin-top: -45px;
+      margin-left: 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    h2 {
+      color: #333333;
+      margin-top: 0;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .box {
+      text-align: center;
+      flex-basis: 45%;
+      margin-bottom: 20px;
+      margin-top:1%;
+    }
+    
+    .box label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+    
+    .box input[type="text"],
+    .box input[type="password"],
+    .box input[type="date"],
+    .box select {
+      outline: none;
+      height: auto;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      background: transparent;
+    }
+    
+    .submit {
+      text-align: center;
+      
+    }
+    
+    .submit button {
+      background-color: #30d01b;
+      margin-bottom: 30px;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .submit button:hover {
+      background-color: #2bb918;
+    }   
+    .heading {
+      text-align: center;
+      font-family: "Arial Black", sans-serif;
+      font-size: 36px;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+    .message {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 95%;
+        color:#f36f20;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    .error-message1 {
+    left: 796px;
+    position:absolute;
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+.error-message2 {
+    left: 462px;
+    position:absolute;
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+  </style>
+</head>
+<body>
+<div class="header">
+        <div class="admin-title">Cappacale Dale</div>
+        <ul class="nav-links">
+            <li><a href="/manageowner">Home</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="heading"><b>Edit Owner</b></div>
+        <form action="{% url 'editowner' id=owner.id %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ owner.id }}">
+            <div class="details">
+                <div class="box">
+                    <label>First Name</label>
+                    <input type="text" placeholder="Enter your First Name" name="owner_fname" value="{{ owner.Owner_Fname }}" required>
+                </div>
+                <div class="box">
+                    <label>Middle Name</label>
+                    <input type="text" placeholder="Enter your Middle Name" name="owner_mname" value="{{ owner.Owner_Mname }}" required>
+                </div>
+                <div class="box">
+                    <label>Last Name</label>
+                    <input type="text" placeholder="Enter your Last Name" name="owner_lname" value="{{ owner.Owner_Lname }}" required>
+                </div>
+                <div class="box">
+                    <label>Email</label>
+                    <input type="text" placeholder="Enter your Email" name="username" value="{{ owner.username.username }}" required>
+                    <div class="error-message1"></div>
+                </div>
+                <div class="box">
+                    <label>District</label>
+                    <input type="text" placeholder="Enter your District" name="owner_district" value="{{ owner.Owner_Dist }}" required>
+                </div>
+                <div class="box">
+                    <label>City</label>
+                    <input type="text" placeholder="Enter your City" name="owner_city" value="{{ owner.Owner_City }}" required>
+                </div>
+                <div class="box">
+                    <label>Pincode</label>
+                    <input type="text" placeholder="Enter your Pincode" name="owner_pin" value="{{ owner.Owner_Pin }}" required maxlength="6">
+                </div>
+                <div class="box">
+                    <label>Phone Number</label>
+                    <input type="text" maxlength="10" placeholder="Enter your Phone Number" name="owner_phno" value="{{ owner.Owner_Phno }}" required>
+                    <div class="error-message1"></div>
+                </div>
+                <div class="box">
+                    <label>Gender</label>
+                    <select name="owner_gender" required>
+                        <option>Select your Gender</option>
+                        <option {% if owner.Owner_Gender == 'Male' %} selected {% endif %}>Male</option>
+                        <option {% if owner.Owner_Gender == 'Female' %} selected {% endif %}>Female</option>
+                        <option {% if owner.Owner_Gender == 'Others' %} selected {% endif %}>Others</option>
+                    </select>
+                </div>
+                <div class="box">
+                    <label>Date of Birth</label>
+                    <input type="date" placeholder="Date of Birth" name="owner_dob" value="{{ owner.Owner_Dob }}" required>
+                </div>
+                <div class="box">
+                    <label>Password</label>
+                    <input type="password" maxlength="8" placeholder="Enter Password" name="password_" required>
+                    <div class="error-message1"></div>
+                </div>
+            </div>
+            <div class="submit">
+                <button type="submit" name="save">Edit</button>
+            </div>
+        </form>
+    </div>
+    
